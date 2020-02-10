@@ -4,6 +4,8 @@ import React from "react";
 import "./App.css";
 //import TodoItem from "./component/TodoItem";
 import ContactsCard from "./component/contactCard";
+import Joke from "./component/Joke";
+import JokesData from "./jokesData";
 
 function App() {
   const date = new Date();
@@ -16,35 +18,53 @@ function App() {
   } else {
     timeOfDay = "NIGHT";
   }
+  const jokeComponents = JokesData.map(joke => {
+    return (
+      <Joke key={joke.id} question={joke.question} punchLine={joke.punchLine} />
+    );
+  });
   return (
     //anything we want to change from JXS to JS we need to wrap on curly braces
-    <div className="todo-list">
+    // <div className="todo-list">
+    //   <h1 style={{ color: "red", backgroundColor: "gray" }}>
+    //     GOOD {timeOfDay}
+    //   </h1>
+    <div>
       <h1 style={{ color: "red", backgroundColor: "gray" }}>
         GOOD {timeOfDay}
       </h1>
 
       <div className="contacts">
         <ContactsCard
-          name="Mr.Whiskerson"
-          imgUrl="http://placekitten.com/300/200"
-          Email="kitty@gmail.com"
+          contacts={{
+            name: "Mr.Whiskerson",
+            imgUrl: "http://placekitten.com/300/200",
+            email: "kitty@gmail.com"
+          }}
         />
         <ContactsCard
-          name="Felix"
-          imgUrl="http://placekitten.com/200/100"
-          Email="felix@gmail.com"
+          contacts={{
+            name: "Felix",
+            imgUrl: "http://placekitten.com/200/100",
+            email: "felix@gmail.com"
+          }}
         />
         <ContactsCard
-          name="Destroyer"
-          imgUrl="http://placekitten.com/400/300"
-          Email="Dest@gmail.com"
+          contacts={{
+            name: "Destroyer",
+            imgUrl: "http://placekitten.com/400/300",
+            email: "Dest@gmail.com"
+          }}
         />
         <ContactsCard
-          name="Fluffykins"
-          imgUrl="http://placekitten.com/400/200"
-          Email="fluffy@gmail.com"
+          contacts={{
+            name: "Fluffykins",
+            imgUrl: "http://placekitten.com/400/200",
+            email: "fluffy@gmail.com"
+          }}
         />
       </div>
+      <div>{jokeComponents};</div>
     </div>
   );
 }
