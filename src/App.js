@@ -6,6 +6,7 @@ import "./App.css";
 import ContactsCard from "./component/contactCard";
 import Joke from "./component/Joke";
 import JokesData from "./jokesData";
+import Data from "./component/class";
 
 function App() {
   const date = new Date();
@@ -19,9 +20,7 @@ function App() {
     timeOfDay = "NIGHT";
   }
   const jokeComponents = JokesData.map(joke => {
-    return (
-      <Joke key={joke.id} question={joke.question} punchLine={joke.punchLine} />
-    );
+    return <Joke key={joke.id} quiz={joke} />;
   });
   return (
     //anything we want to change from JXS to JS we need to wrap on curly braces
@@ -65,6 +64,7 @@ function App() {
         />
       </div>
       <div>{jokeComponents};</div>
+      <Data />
     </div>
   );
 }
