@@ -1,12 +1,14 @@
 import React from "react";
 
-function contactsCard(props) {
-  //console.log(props);
+function contactsCard({ data }) {
+  // console.log(contacts);
+  //const { contacts } = props;
   return (
     <div className="contact-card">
-      <img src={props.imgUrl} alt={props.name} />
-      <h3>{props.name}</h3>
-      <p>{props.Email}</p>
+      <h1>Contact Card</h1>
+      <img src={data.imgUrl} alt={data.name} />
+      <h3>{data.name}</h3>
+      <p>{data.email}</p>
     </div>
   );
 }
