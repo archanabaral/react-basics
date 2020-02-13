@@ -7,6 +7,7 @@ import ContactsCard from "./component/contactCard";
 import Joke from "./component/Joke";
 import JokesData from "./jokesData";
 import Data from "./component/class";
+import Event from "./component/event";
 
 function App() {
   const date = new Date();
@@ -65,6 +66,7 @@ function App() {
       </div>
       <div>{jokeComponents};</div>
       <Data />
+      <Event />
     </div>
   );
 }
