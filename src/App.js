@@ -4,10 +4,12 @@ import React from "react";
 import "./App.css";
 //import TodoItem from "./component/TodoItem";
 import ContactsCard from "./component/contactCard";
+import contactData from "./contactData";
 import Joke from "./component/Joke";
 import JokesData from "./jokesData";
 import Data from "./component/class";
 import Event from "./component/event";
+import Todo from "./component/todo";
 
 function App() {
   const date = new Date();
@@ -23,6 +25,9 @@ function App() {
   const jokeComponents = JokesData.map(joke => {
     return <Joke key={joke.id} quiz={joke} />;
   });
+  const contacts = contactData.map(contact => {
+    return <ContactsCard key={contact.id} data={contact} />;
+  });
   return (
     //anything we want to change from JXS to JS we need to wrap on curly braces
     // <div className="todo-list">
@@ -33,40 +38,11 @@ function App() {
       <h1 style={{ color: "red", backgroundColor: "gray" }}>
         GOOD {timeOfDay}
       </h1>
-
-      <div className="contacts">
-        <ContactsCard
-          contacts={{
-            name: "Mr.Whiskerson",
-            imgUrl: "http://placekitten.com/300/200",
-            email: "kitty@gmail.com"
-          }}
-        />
-        <ContactsCard
-          contacts={{
-            name: "Felix",
-            imgUrl: "http://placekitten.com/200/100",
-            email: "felix@gmail.com"
-          }}
-        />
-        <ContactsCard
-          contacts={{
-            name: "Destroyer",
-            imgUrl: "http://placekitten.com/400/300",
-            email: "Dest@gmail.com"
-          }}
-        />
-        <ContactsCard
-          contacts={{
-            name: "Fluffykins",
-            imgUrl: "http://placekitten.com/400/200",
-            email: "fluffy@gmail.com"
-          }}
-        />
-      </div>
-      <div>{jokeComponents};</div>
+      <div>{contacts}</div>
+      <div>{jokeComponents}</div>
       <Data />
       <Event />
+      <Todo />
     </div>
   );
 }
